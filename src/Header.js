@@ -1,9 +1,16 @@
 import logo from './Logo.svg';
+import Navigation from './navigation';
 
 function Header(){
     return(
-        <header>
-        <img src={logo} alt='Little Lemon Logo'/></header>
+        <header className='header-container'>
+            <div>
+            <img src={logo} alt='Little Lemon Logo'/>
+            </div>
+            <div>
+                <Navigation/>
+            </div>
+        </header>
     );
 }
 

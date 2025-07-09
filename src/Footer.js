@@ -2,7 +2,7 @@ import logo from './Logo.svg';
 
 function Footer(){
     return(
-        <footer>
+        <footer className='footer-container'>
             <img src={logo} alt="Little Lemon Logo"/>
             <div>
                 <h3>Doormat Navigation</h3>
@@ -14,7 +14,7 @@ function Footer(){
                     <li><a href="/order-online">Order Online</a></li>
                 </ul>
             </div>
-            <div>
+            <div className='footer-contact'>
                 <h3>Contact</h3>
                 <ul>
                     <li><a>Address</a></li>

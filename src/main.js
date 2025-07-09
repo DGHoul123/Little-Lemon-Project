@@ -1,5 +1,9 @@
 function Main(){
-    return null;
+    return (
+        <main className="main-container">
+            Hello
+        </main>
+    );
 }
 
 export default Main;
