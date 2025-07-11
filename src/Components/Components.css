@@ -1,4 +1,4 @@
-div.home{
+.home{
     display:grid;
     background-color:#495E57;
     grid-template-columns: auto 1fr;
@@ -8,28 +8,28 @@ div.home{
     padding-right: 25%;
 }
 
-div.content h1{
+.content h1{
     font-family: "Markazi Text";
 }
 
-div.content{
+.content{
     max-width: 500px;
     padding-left: 10%;
     align-self: center;
 }
 
-div.content p.city{
+.content p.city{
     margin-bottom:8px;
     font-family: "karla";
 }
 
-div.content p{
+.content p{
     padding: 0;
     margin: 0;
     font-family: "karla";
 }
 
-div.image img{
+.image img{
     max-width:150px;
     height:auto;
     border-radius: 16px;
@@ -37,7 +37,7 @@ div.image img{
     object-fit: cover;
     position: absolute;
 }
-div.image {
+.image {
   position: relative;
   width: 40%;
 }

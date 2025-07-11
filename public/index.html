@@ -42,6 +42,31 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script src="https://raw.githubusercontent.com/courseraap/capstone/main/api.js"></script>
+    <script>
+        if (typeof fetchAPI !== 'undefined' && typeof fetchAPI === 'function') {
+            window.fetchAPI = fetchAPI;
+            console.log('[API Bridge] fetchAPI successfully mapped to window.fetchAPI');
+        } else {
+            console.error('[API Bridge] Error: fetchAPI not found from external script! Using fallback.');
+            window.fetchAPI = function(date) {
+                console.warn("Fallback fetchAPI used. Check external script loading.");
+                return ['14:00', '15:00', '16:00'];
+            };
+        }
+
+
+        if (typeof submitAPI !== 'undefined' && typeof submitAPI === 'function') {
+            window.submitAPI = submitAPI;
+            console.log('[API Bridge] submitAPI successfully mapped to window.submitAPI');
+        } else {
+            console.error('[API Bridge] Error: submitAPI not found from external script! Using fallback.');
+            window.submitAPI = function(formData) {
+                console.warn("Fallback submitAPI used. Check external script loading.");
+                return false;
+            };
+        }
+    </script>
     <div id="root" class="grid-container"></div>
     <!--
       This HTML file is a template.
