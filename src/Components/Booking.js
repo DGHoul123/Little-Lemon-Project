@@ -1,9 +1,10 @@
 import BookingForm from "./BookingForm";
+import './Components.css';
 
 function Booking({ availableTimes, fetchTimesForSelectedDate }) {
     return (
-        <section>
-            <h2>Book Your Table</h2>
+        <section className="se">
+            <h1>Reserve a Table</h1>
             <BookingForm
                 availableTimes={availableTimes}
                 fetchTimesForSelectedDate={fetchTimesForSelectedDate}

@@ -1,4 +1,4 @@
-
+import './Components.css';
 
 import React,{useState,useEffect,useCallback} from "react";
 
@@ -36,11 +36,17 @@ function BookingForm({availableTimes,fetchTimesForSelectedDate }){
         setOccasion(e.target.value);
     }
 
+    const[special,setSpecial]=useState("");
+    function updateSpecial(e){
+        setSpecial(e.target.value);
+    }
+
     const resetForm = () => {
         setGuest(0);
         setDate("");
         setTime("");
         setOccasion("Select the event");
+        setSpecial("");
     };
 
     const validateForm = useCallback(() => {
@@ -76,28 +82,49 @@ function BookingForm({availableTimes,fetchTimesForSelectedDate }){
 
     return(
         <form onSubmit={handleSubmit}>
-            <label htmlFor='res-date'>Choose Date</label>
-            <input type="date" id="res-date" value={date} onChange={updateDate} required></input>
-            <label htmlFor="res-time">Choose Time</label>
-            <select id="res-time" onChange={updateTime} value={time} required>
-                <option value="" disabled>Select the time</option>
-                {availableTimes && availableTimes.length > 0 ? (
-                    availableTimes.map((availableTime) => (
-                        <option key={availableTime} value={availableTime}>{availableTime}</option>
-                    ))
-                ) : (
-                    <option value="" disabled>No times available</option>
-                )}
-            </select>
-            <label htmlFor='guests' required>Number of Guests</label>
-            <input type="number" id="guests" placeholder="1" min={1} max={10} value={guest} onChange={updateGuest} required></input>
-            <label htmlFor='occasion'>Occation</label>
-            <select id='occasion' value={occasion} onChange={updateOccasion}>
-                <option value="Select the event" disabled>Select the event</option>
-                <option>Birthday</option>
-                <option>Engagement</option>
-            </select>
-            <input type="submit" value="Make your Reservation" disabled={!isFormValid}  aria-label="On Click"></input>
+            <div className='dandt'>
+                <div className='date'>
+                    <label htmlFor='res-date'>Choose Date</label>
+                    <input type="date" id="res-date" value={date} onChange={updateDate} required></input>
+                </div>
+                <div className='time'>
+                    <label htmlFor="res-time">Choose Time</label>
+                    <select id="res-time" onChange={updateTime} value={time} required>
+                        <option value="" disabled>Select the time</option>
+                        {availableTimes && availableTimes.length > 0 ? (
+                            availableTimes.map((availableTime) => (
+                                <option key={availableTime} value={availableTime}>{availableTime}</option>
+                            ))
+                        ) : (
+                            <option value="" disabled>No times available</option>
+                        )}
+                    </select>
+                </div>
+            </div>
+            <div className='gu'>
+                <label htmlFor='guests' required>Number of Diners</label>
+                <input type="number" id="guests" placeholder="1" min={1} max={10} value={guest} onChange={updateGuest} required></input>
+            </div>
+            <div className='oc'>
+                <label htmlFor='occasion'>Occasion</label>
+                <select id='occasion' value={occasion} onChange={updateOccasion}>
+                    <div className='disable'>
+                        <option value="Select the event" disabled >Select the event</option>
+                    </div>
+                    <option>Birthday</option>
+                    <option>Engagement</option>
+                    <option>Anniversary</option>
+                </select>
+            </div>
+            <div className='Sn'>
+                <label htmlFor='Special'>Special Note</label>
+                <div>
+                    <textarea id='Special' placeholder={"Add a note..."} onChange={updateSpecial} value={special} ></textarea>
+                </div>
+            </div>
+            <div>
+                <input className='sub' type="submit" value="Make your Reservation" disabled={!isFormValid}  aria-label="On Click"></input>
+            </div>
         </form>
     );
 }

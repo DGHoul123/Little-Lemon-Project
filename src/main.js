@@ -1,6 +1,3 @@
-
-
-import { Route,Routes } from "react-router-dom";
 import Homepage from "./Components/Homepage";
 import Booking from "./Components/Booking";
 import About from "./Components/About";
@@ -8,6 +5,7 @@ import Menu from "./Components/Menu";
 import Online from "./Components/Online";
 import LoginUser from "./Components/LoginUser";
 import { useReducer,useEffect } from "react";
+import { Route,Routes } from "react-router-dom";
 
 
 function formatDate(date) {
