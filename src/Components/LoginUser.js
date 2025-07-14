@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-// Import your CSS file here if you put the styles in a separate .css file
-// import './Components.css'; 
+import './Components.css';
 
 function LoginUser() {
     const [showPassword, setShowPassword] = useState(false);
@@ -8,14 +7,12 @@ function LoginUser() {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [submissionMessage, setSubmissionMessage] = useState(null); // For custom message
+    const [submissionMessage, setSubmissionMessage] = useState(null);
 
-    // State for validation errors
     const [errors, setErrors] = useState({});
-    // State for overall form validity
     const [isFormValid, setIsFormValid] = useState(false);
 
-    // Validation functions: Now returns the error string, doesn't set state directly
+
     const validateField = useCallback((fieldName, value) => {
         let error = '';
         switch (fieldName) {
@@ -31,7 +28,7 @@ function LoginUser() {
             case 'phone':
                 if (!value.trim()) {
                     error = 'Phone number is required.';
-                } else if (!/^\d{10,15}$/.test(value)) { // Basic 10-15 digit phone number
+                } else if (!/^\d{10,15}$/.test(value)) {
                     error = 'Please enter a valid phone number (10-15 digits).';
                 }
                 break;
@@ -48,17 +45,14 @@ function LoginUser() {
                 } else if (value.length < 8) {
                     error = 'Password must be at least 8 characters.';
                 }
-                // Add more complex password rules if needed, e.g., regex for special chars, numbers
                 break;
             default:
                 break;
         }
-        return error; // Return the error string
+        return error;
     }, []);
 
-    // Effect to validate form and update overall validity (without showing errors initially)
     useEffect(() => {
-        // This effect calculates overall validity but doesn't set visible errors on mount
         const nameError = validateField('name', name);
         const phoneError = validateField('phone', phone);
         const emailError = validateField('email', email);
@@ -66,13 +60,12 @@ function LoginUser() {
 
         const allFieldsAreValid = !nameError && !phoneError && !emailError && !passwordError;
         setIsFormValid(allFieldsAreValid);
-    }, [name, phone, email, password, validateField]); // Re-run validation when any field changes
+    }, [name, phone, email, password, validateField]);
 
     const togglePasswordVisibility = () => {
         setShowPassword(prevShowPassword => !prevShowPassword);
     };
 
-    // Update handlers now also trigger field-specific validation and set errors
     const updateName = (e) => {
         const newValue = e.target.value;
         setName(newValue);
@@ -97,13 +90,11 @@ function LoginUser() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Re-validate all fields on submit to catch any un-blurred errors and display them
         const nameError = validateField('name', name);
         const phoneError = validateField('phone', phone);
         const emailError = validateField('email', email);
         const passwordError = validateField('password', password);
 
-        // Set all errors at once
         setErrors({
             name: nameError,
             phone: phoneError,
@@ -111,7 +102,7 @@ function LoginUser() {
             password: passwordError,
         });
 
-        // Check overall validity based on the errors
+
         const formIsValidOnSubmit = !nameError && !phoneError && !emailError && !passwordError;
 
         if (formIsValidOnSubmit) {
@@ -122,7 +113,7 @@ function LoginUser() {
             setEmail("");
             setPassword("");
             setShowPassword(false);
-            setErrors({}); // Clear errors on successful submit
+            setErrors({});
         } else {
             setSubmissionMessage({ type: 'error', text: 'Please correct the errors in the form.' });
         }
@@ -130,14 +121,11 @@ function LoginUser() {
 
     return (
         <>
-            {/* CSS Styles for the LoginUser Component */}
-            
-
+        <h1 className="head1">Login Page</h1>
             <div className="login-page-container">
                 <form onSubmit={handleSubmit} className="login-form">
                     <h2 className="login-form-title">Welcome Back!</h2>
 
-                    {/* Submission Message Display (Custom Modal) */}
                     {submissionMessage && (
                         <div className="modal-overlay">
                             <div className="modal-content">
@@ -148,7 +136,6 @@ function LoginUser() {
                         </div>
                     )}
 
-                    {/* Name Field */}
                     <div className="form-group">
                         <label htmlFor="name" className="form-label">Name</label>
                         <input
@@ -163,7 +150,6 @@ function LoginUser() {
                         {errors.name && <p className="error-message">{errors.name}</p>}
                     </div>
 
-                    {/* Phone Field */}
                     <div className="form-group">
                         <label htmlFor="phone" className="form-label">Phone</label>
                         <input
@@ -178,7 +164,6 @@ function LoginUser() {
                         {errors.phone && <p className="error-message">{errors.phone}</p>}
                     </div>
 
-                    {/* Email Field */}
                     <div className="form-group">
                         <label htmlFor="email" className="form-label">Email</label>
                         <input
@@ -193,7 +178,6 @@ function LoginUser() {
                         {errors.email && <p className="error-message">{errors.email}</p>}
                     </div>
 
-                    {/* Password Field */}
                     <div className="form-group password-group">
                         <label htmlFor="password-input" className="form-label">Password</label>
                         <input
@@ -220,16 +204,15 @@ function LoginUser() {
                         </div>
                     </div>
 
-                    {/* Submit Button */}
+
                     <button
                         type="submit"
                         className="submit-button"
-                        disabled={!isFormValid} // Disable if form is not valid
+                        disabled={!isFormValid}
                     >
                         Log In
                     </button>
 
-                    {/* Optional: Forgot Password / Sign Up Link */}
                     <p className="signup-text">
                         Don't have an account?{" "}
                         <a href="/signup" className="signup-link">

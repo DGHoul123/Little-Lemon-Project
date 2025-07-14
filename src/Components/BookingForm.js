@@ -81,51 +81,62 @@ function BookingForm({availableTimes,fetchTimesForSelectedDate }){
     };
 
     return(
-        <form onSubmit={handleSubmit}>
-            <div className='dandt'>
-                <div className='date'>
-                    <label htmlFor='res-date'>Choose Date</label>
-                    <input type="date" id="res-date" value={date} onChange={updateDate} required></input>
-                </div>
-                <div className='time'>
-                    <label htmlFor="res-time">Choose Time</label>
-                    <select id="res-time" onChange={updateTime} value={time} required>
-                        <option value="" disabled>Select the time</option>
-                        {availableTimes && availableTimes.length > 0 ? (
-                            availableTimes.map((availableTime) => (
-                                <option key={availableTime} value={availableTime}>{availableTime}</option>
-                            ))
-                        ) : (
-                            <option value="" disabled>No times available</option>
-                        )}
-                    </select>
-                </div>
-            </div>
-            <div className='gu'>
-                <label htmlFor='guests' required>Number of Diners</label>
-                <input type="number" id="guests" placeholder="1" min={1} max={10} value={guest} onChange={updateGuest} required></input>
-            </div>
-            <div className='oc'>
-                <label htmlFor='occasion'>Occasion</label>
-                <select id='occasion' value={occasion} onChange={updateOccasion}>
-                    <div className='disable'>
-                        <option value="Select the event" disabled >Select the event</option>
+        <div className='box'>
+            <form onSubmit={handleSubmit} className='login-form1'>
+                <h1>Welcome!</h1>
+                <div className='dandt'>
+                    <div className='date'>
+                        <label htmlFor='res-date'>Choose Date</label>
+                        <div>
+                        <input type="date" id="res-date" value={date} onChange={updateDate} required></input>
+                        </div>
                     </div>
-                    <option>Birthday</option>
-                    <option>Engagement</option>
-                    <option>Anniversary</option>
-                </select>
-            </div>
-            <div className='Sn'>
-                <label htmlFor='Special'>Special Note</label>
-                <div>
-                    <textarea id='Special' placeholder={"Add a note..."} onChange={updateSpecial} value={special} ></textarea>
+                    <div className='time'>
+                        <label htmlFor="res-time">Choose Time</label>
+                        <div>
+                        <select id="res-time" onChange={updateTime} value={time} required>
+                            <option value="" disabled>Select the time</option>
+                            {availableTimes && availableTimes.length > 0 ? (
+                                availableTimes.map((availableTime) => (
+                                    <option key={availableTime} value={availableTime}>{availableTime}</option>
+                                ))
+                            ) : (
+                                <option value="" disabled>No times available</option>
+                            )}
+                        </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <input className='sub' type="submit" value="Make your Reservation" disabled={!isFormValid}  aria-label="On Click"></input>
-            </div>
-        </form>
+                <div className='gu'>
+                    <label htmlFor='guests' required>Number of Diners</label>
+                    <div>
+                    <input type="number" id="guests" placeholder="1" min={1} max={10} value={guest} onChange={updateGuest} required></input>
+                    </div>
+                </div>
+                <div className='oc'>
+                    <label htmlFor='occasion'>Occasion</label>
+                    <div>
+                    <select id='occasion' value={occasion} onChange={updateOccasion}>
+                        <div className='disable'>
+                            <option value="Select the event" disabled >Select the event</option>
+                        </div>
+                        <option>Birthday</option>
+                        <option>Engagement</option>
+                        <option>Anniversary</option>
+                    </select>
+                    </div>
+                </div>
+                <div className='Sn'>
+                    <label htmlFor='Special'>Special Note</label>
+                    <div>
+                        <textarea id='Special' placeholder={"Add a note..."} onChange={updateSpecial} value={special} ></textarea>
+                    </div>
+                </div>
+                <div>
+                    <input className='submit-button' type="submit" value="Make your Reservation" disabled={!isFormValid}  aria-label="On Click"></input>
+                </div>
+            </form>
+        </div>
     );
 }
 

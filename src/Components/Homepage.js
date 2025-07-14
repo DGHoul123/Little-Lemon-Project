@@ -5,6 +5,13 @@ import Specials from "./Specials";
 import p1 from "./files/greek salad.jpg";
 import p2 from "./files/lemon dessert.jpg";
 import p3 from "./files/bruchetta.svg";
+import Review from "./Review";
+import ph1 from "./files/images/Giulia.jpeg";
+import ph2 from "./files/images/5.jpeg";
+import ph3 from "./files/images/4.jpeg";
+import ph4 from "./files/images/1.jpeg";
+import chef1 from "./files/Mario and Adrian A.jpg";
+import chef2 from "./files/Mario and Adrian b.jpg"
 
 function Homepage(){
     return (
@@ -57,8 +64,49 @@ function Homepage(){
                     />
                 </div>
             </div>
+            <div className="hreview">
+                <div>
+                    <h1 className="heading">Testimonial</h1>
+                </div>
+                <div className="hreview1">
+                    <Review
+                        src1={ph1}
+                        alt1={"photo"}
+                        para1={"Giulia"}
+                        description1={"Cozy atmosphere and fresh ingredients. You can really taste the love in every bite."}
+                    />
+                    <Review
+                        src1={ph2}
+                        alt1={"photo"}
+                        para1={"Marco"}
+                        description1={"A hidden gem! The flavors are authentic, and the touch of lemon makes every dish stand out."}
+                    />
+                    <Review
+                        src1={ph3}
+                        alt1={"photo"}
+                        para1={"Elena"}
+                        description1={"Perfect for a quiet dinner. The lemon pasta was incredible—simple, yet unforgettable."}
+                    />
+                    <Review
+                        src1={ph4}
+                        alt1={"photo"}
+                        para1={"Luca"}
+                        description1={"Great service, warm vibe, and amazing food. I’ll definitely be coming back!"}
+                    />
+                </div>
+            </div>
+            <div className="intro1">
+                <div className="intro">
+                    <h1>Little Lemon</h1>
+                    <p className="intro2">Chicago</p>
+                    <p>Situato in una pittoresca via italiana, Little Lemon è un ristorante che unisce tradizione mediterranea e creatività moderna. I piatti sono preparati con ingredienti freschi e locali, arricchiti da un tocco di limone che dona freschezza e carattere a ogni portata. L’ambiente è intimo e accogliente, perfetto per una cena rilassante o un pranzo tra amici.</p>
+                </div>
+                <div className="chef">
+                    <img src={chef1} alt="Chef 1"></img>
+                    <img src={chef2} alt="Chef 2"></img>
+                </div>
+            </div>
         </>
-
     );
 }
 
