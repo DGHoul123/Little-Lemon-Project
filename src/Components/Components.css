@@ -1078,3 +1078,220 @@ h1{
 .hover\:bg-green-700:hover {
     background-color: #047857;
 }
+
+
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+
+    .homepage-main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+
+    .home {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+        margin: 0 auto;
+    }
+
+     .home .content {
+        width: 100%;
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        margin-left:15% ;
+    }
+
+
+
+    .home .image {
+        width: 90%;
+        height: auto;
+        padding: 0;
+        position: static;
+        margin: 0 auto;
+    }
+
+    .home .image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        position: static;
+        max-width: 100%;
+    }
+
+
+    .home .content .button {
+        width: 80%;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+
+    .specials-section {
+        width: 100%;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .spe {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin-bottom: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+
+    .spe .but {
+        width: 80%;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .oo {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .hreview {
+        padding: 0 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .heading {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .hreview1 {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .review {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .intro1 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .intro {
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 0;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .intro p{
+        margin-left: 20%;
+        text-align: justify;
+    }
+    .intro2{
+        text-align: center;
+        padding-left:25% ;
+    }
+
+    .chef {
+        position: static;
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .chef img:nth-child(1),
+    .chef img:nth-child(2) {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none;
+        margin: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        max-width: 350px;
+    }
+
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+        gap: 2rem;
+        grid-template-columns: none;
+        grid-gap: 0;
+    }
+
+    .footer-container img {
+        width: 120px;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-container > div {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .footer-container h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .footer-container ul li {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .footer-container div.footer-contact {
+        padding-left: 0;
+    }
+}

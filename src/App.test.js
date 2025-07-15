@@ -68,7 +68,7 @@ describe('BookingForm Validation', () => {
     test('submit button remains disabled if date is not selected', () => {
         renderBookingForm({ availableTimes: ["17:00"] }); // Provide times to enable time select
         const timeSelect = screen.getByLabelText(/choose time/i);
-        const guestsInput = screen.getByLabelText(/number of guests/i);
+        const guestsInput = screen.getByLabelText(/number of diners/i);
         const occasionSelect = screen.getByLabelText(/occasion/i); // This query will now work after typo fix
         const submitButton = screen.getByRole('button', { name: /on click/i }); // Updated query
 
@@ -94,7 +94,7 @@ describe('BookingForm Validation', () => {
     test('submit button remains disabled if time is not selected (default disabled option)', () => {
         renderBookingForm({ availableTimes: ["17:00"] });
         const dateInput = screen.getByLabelText(/choose date/i);
-        const guestsInput = screen.getByLabelText(/number of guests/i);
+        const guestsInput = screen.getByLabelText(/number of diners/i);
         const occasionSelect = screen.getByLabelText(/occasion/i); // This query will now work
         const submitButton = screen.getByRole('button', { name: /on click/i }); // Updated query
 
@@ -111,7 +111,7 @@ describe('BookingForm Validation', () => {
         renderBookingForm({ availableTimes: ["17:00"] });
         const dateInput = screen.getByLabelText(/choose date/i);
         const timeSelect = screen.getByLabelText(/choose time/i);
-        const guestsInput = screen.getByLabelText(/number of guests/i);
+        const guestsInput = screen.getByLabelText(/number of diners/i);
         const occasionSelect = screen.getByLabelText(/occasion/i); // This query will now work
         const submitButton = screen.getByRole('button', { name: /on click/i }); // Updated query
 
@@ -127,7 +127,7 @@ describe('BookingForm Validation', () => {
         renderBookingForm({ availableTimes: ["17:00"] });
         const dateInput = screen.getByLabelText(/choose date/i);
         const timeSelect = screen.getByLabelText(/choose time/i);
-        const guestsInput = screen.getByLabelText(/number of guests/i);
+        const guestsInput = screen.getByLabelText(/number of diners/i);
         const occasionSelect = screen.getByLabelText(/occasion/i); // This query will now work
         const submitButton = screen.getByRole('button', { name: /on click/i }); // Updated query
 
@@ -144,7 +144,7 @@ describe('BookingForm Validation', () => {
         renderBookingForm({ availableTimes: ["17:00"] });
         const dateInput = screen.getByLabelText(/choose date/i);
         const timeSelect = screen.getByLabelText(/choose time/i);
-        const guestsInput = screen.getByLabelText(/number of guests/i);
+        const guestsInput = screen.getByLabelText(/number of diners/i);
         // Occasion is left at default disabled option
         const submitButton = screen.getByRole('button', { name: /on click/i }); // Updated query
 
@@ -162,7 +162,7 @@ describe('BookingForm Validation', () => {
 
         const dateInput = screen.getByLabelText(/choose date/i);
         const timeSelect = screen.getByLabelText(/choose time/i);
-        const guestsInput = screen.getByLabelText(/number of guests/i);
+        const guestsInput = screen.getByLabelText(/number of diners/i);
         const occasionSelect = screen.getByLabelText(/occasion/i); // This query will now work
         const submitButton = screen.getByRole('button', { name: /on click/i }); // Updated query
 
